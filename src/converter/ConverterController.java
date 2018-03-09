@@ -4,6 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+
+import java.awt.*;
+
+import static javafx.scene.paint.Color.RED;
 
 
 /**
@@ -36,7 +41,6 @@ public class ConverterController {
         Length unit1 = comboBox1.getValue();
         Length unit2 = comboBox2.getValue();
 
-
         if(text1.isEmpty()){
             try{
                 double t2 = Double.parseDouble(text2);
@@ -44,7 +48,8 @@ public class ConverterController {
                 double toValue1 = actualV1/unit1.getValue();
                 textfield1.setText(String.valueOf(toValue1));
             }catch(IllegalArgumentException ex){
-                System.out.println("Invalid number format");
+                textfield2.setText("Invalid entry");
+                textfield2.setStyle("-fx-text-fill: red;");
             }
         }
         else if(text2.isEmpty()){
@@ -54,11 +59,10 @@ public class ConverterController {
                 double toValue2 = actualV2/unit2.getValue();
                 textfield2.setText(String.valueOf(toValue2));
             }catch(IllegalArgumentException ex){
-                System.out.println("Invalid number format");
+                textfield1.setText("Invalid entry");
+                textfield1.setStyle("-fx-text-fill: red;");
             }
         }
-
-
     }
 
     /**
@@ -68,7 +72,9 @@ public class ConverterController {
     public void handleClear(ActionEvent event){
         // re-assinging the textfield to be empty
         textfield1.setText("");
+        textfield1.setStyle("-fx-text-fill: black;");
         textfield2.setText("");
+        textfield2.setStyle("-fx-text-fill: black;");
     }
 
     @FXML

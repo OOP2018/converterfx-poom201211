@@ -5,16 +5,23 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.FlowPane?>
 
 <FlowPane alignment="CENTER_LEFT" hgap="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="converter.ConverterController">
    <children>
-      <TextField fx:id="textfield1" prefHeight="31.0" prefWidth="165.0" />
+      <TextField fx:id="textfield1" onAction="#handleConvert" prefHeight="31.0" prefWidth="165.0" />
       <ComboBox fx:id="comboBox1" prefWidth="150.0" />
       <Label alignment="CENTER" text="=" />
-      <TextField fx:id="textfield2" prefHeight="31.0" prefWidth="157.0" />
+      <TextField fx:id="textfield2" onAction="#handleConvert" prefHeight="31.0" prefWidth="157.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Blend />
+         </effect></TextField>
       <ComboBox fx:id="comboBox2" prefHeight="31.0" prefWidth="151.0" />
-      <Button mnemonicParsing="false" onAction="#handleConvert" text="Convert" />
+      <Button mnemonicParsing="false" onAction="#handleConvert" text="Convert" textFill="#030303" />
       <Button mnemonicParsing="false" onAction="#handleClear" text="Clear" />
    </children>
    <padding>
